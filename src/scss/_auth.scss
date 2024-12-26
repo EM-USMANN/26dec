@@ -1,0 +1,14 @@
+.auth{
+    background-color: $primary;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .card{
+        
+        max-width: 500px;
+        width: 100%;
+    }
+}
