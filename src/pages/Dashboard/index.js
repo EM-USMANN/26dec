@@ -1,10 +1,15 @@
 import React from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import Todos from './Todos'
 
 const Dashboard = () => {
     return (
-        <div>
-
-        </div>
+        <>
+            <Routes>
+                <Route index element={<Navigate to='/dashboard/todos/add' />} />
+                <Route path='todos/*' element={<Todos />} />
+            </Routes>
+        </>
     )
 }
 

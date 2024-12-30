@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Button, Col, Form, Input, Row, Typography } from 'antd'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from 'config/firebase'
 
 const { Title } = Typography
 
-const initialStae = { email: '', password: '' }
+const initialStae = { email: '', }
 
-const Login = () => {
+const ForgotPassword = () => {
 
 
     const [state, setState] = useState(initialStae)
@@ -19,15 +19,14 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        let { email, password } = state
+        let { email } = state
 
 
         setIsProcessing(true)
 
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log('user', user)
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                window.notify("Email send scuucessfully")
             })
 
             .catch((error) => {
@@ -48,7 +47,7 @@ const Login = () => {
     return (
         <main className='auth p-3 p-md-3 p-lg-4'>
             <div className="card p-3 p-md-3 p-lg-4">
-                <Title className='text-center mb-5 mt-2' >Register</Title>
+                <Title className='text-center mb-5 mt-2' >Forgot Password</Title>
 
                 <Form layout='vertical'>
                     <Row gutter={15}>
@@ -59,14 +58,9 @@ const Login = () => {
                                 <Input size='large' type='email' placeholder='Enter your email' name='email' onChange={handleChange} />
                             </Form.Item>
                         </Col>
-                        <Col span={24}>
-                            <Form.Item label='Enter Your Password:' required>
-                                <Input.Password size='large' placeholder='Enter your password' name='password' onChange={handleChange} />
-                            </Form.Item>
-                        </Col>
 
                         <Col span={24}>
-                            <Button type='primary' size='large' block htmlType='submit' loading={isProcessing} onClick={handleSubmit}>Login</Button>
+                            <Button type='primary' size='large' block htmlType='submit' loading={isProcessing} onClick={handleSubmit}>Forgot Pasword</Button>
                         </Col>
                     </Row>
                 </Form>
@@ -75,4 +69,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default ForgotPassword

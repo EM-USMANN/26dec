@@ -6,7 +6,6 @@ import { Space } from 'antd'
 const Navbar = () => {
 
     const { isAuth, handleLogout } = useAuthContext()
-    console.log('isAuth', isAuth)
 
     return (
         <>

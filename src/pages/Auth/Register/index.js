@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Button, Col, Form, Input, Row, Typography } from 'antd'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from 'config/firebase'
+import { auth, firestore } from 'config/firebase'
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore'
 
 const { Title } = Typography
 
@@ -19,13 +20,18 @@ const Register = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        let { firstName, lastName, email, password, confirmPassword } = state
+        let { firstName, lastName, fullName, email, password, confirmPassword } = state
 
         firstName = firstName.trim()
+
+        lastName = lastName.trim()
+
+        fullName = (firstName + " " + lastName).trim()
+
         if (firstName.length < 3) { return window.notify("please enter your first name correctly", "error") }
         if (confirmPassword !== password) { return window.notify("password doesn't match", "error") }
 
-        const userData = { firstName, lastName, email, password, confirmPassword }
+        const userData = { firstName, lastName, fullName, email }
 
         setIsProcessing(true)
 
@@ -33,7 +39,6 @@ const Register = () => {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
-                console.log('user', user)
                 createDocument({ ...userData, uid: user.uid })
                 // ...
             })
@@ -47,12 +52,25 @@ const Register = () => {
     }
 
 
-    const createDocument = userData => {
-        console.log('userData', userData)
+    const createDocument = async (userData) => {
 
-        setTimeout(() => {
+        try {
+            await setDoc(doc(firestore, "users", userData.uid), userData);
+            window.notify("User Profile created successfully", "success")
+
+        } catch (e) {
+            window.notify("Error while creating user profile", "error")
+            console.error("Error adding document: ", e);
+
+        } finally {
+
             setIsProcessing(false)
-        }, 2000);
+        }
+
+
+
+        // setTimeout(() => {
+        // }, 2000);
     }
 
     return (
