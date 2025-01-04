@@ -59,7 +59,7 @@ const ForgotPassword = () => {
                             </Form.Item>
                         </Col>
 
-                        <Col span={24}>
+                        <Col span={12}>
                             <Button type='primary' size='large' block htmlType='submit' loading={isProcessing} onClick={handleSubmit}>Forgot Pasword</Button>
                         </Col>
                     </Row>
