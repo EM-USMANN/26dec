@@ -1,0 +1,49 @@
+/* Footer Styles */
+.footer {
+    background-color: #343a40; /* Dark background color */
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .footer-logo {
+    max-width: 150px;
+  }
+  
+  .footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-link:hover {
+    color: #dddddd; /* Lighter shade for hover effect */
+  }
+  
+  .footer h5 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .footer p {
+    font-size: 1rem;
+    color: #ffffff;
+  }
+
+  .copyright{
+    color: #a3a3a3 !important;
+  }
+  
+  .footer ul {
+    padding: 0;
+  }
+  
+  .footer ul li {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  

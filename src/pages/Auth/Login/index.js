@@ -48,7 +48,7 @@ const Login = () => {
     return (
         <main className='auth p-3 p-md-3 p-lg-4'>
             <div className="card p-3 p-md-3 p-lg-4">
-                <Title className='text-center mb-5 mt-2' >Register</Title>
+                <Title className='text-center mb-5 mt-2' >Login</Title>
 
                 <Form layout='vertical'>
                     <Row gutter={15}>

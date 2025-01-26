@@ -1,0 +1,141 @@
+/* Features Section */
+.features {
+    background-color: #f8f9fa;
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #007bff; /* Primary blue color */
+        text-transform: uppercase;
+    }
+
+    .feature-card {
+        transition: all 0.3s ease;
+        background-color: #fff;
+        border: 1px solid #e0e0e0;
+        padding: 30px;
+        margin: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        /* Change background and text color on hover */
+        &:hover {
+            background-color: #000000;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+
+            /* Change text color for h3 inside feature-card on hover */
+            .feature-title {
+                color: #ffffff; /* White color for h3 */
+            }
+
+            /* Change text color for p inside feature-card on hover */
+            .feature-description {
+                color: #ffffff; /* Lighter gray color for p */
+            }
+        }
+    }
+
+    .feature-title {
+        font-size: 1.8rem;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .feature-description {
+        font-size: 1rem;
+        color: #777;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 767px) {
+        .feature-card {
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
+}
+
+
+
+
+// after feather section css
+
+/* CTA Section */
+.cta {
+    background-color: #343a40; /* Dark background color */
+    color: #fff; /* Light text color for contrast */
+    padding-top: 80px; /* Extra padding from top */
+    padding-bottom: 80px; /* Add more bottom padding */
+    margin-top: 50px; /* Margin from the top of the page */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.cta-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff7f50; /* Coral color for heading */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.cta-text {
+    font-size: 1.2rem;
+    color: #d1d1d1; /* Lighter text for better readability */
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.cta-icon {
+    width: 80px; /* Control icon size */
+    height: 80px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.cta-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge the icons on hover */
+}
+
+.cta-btn {
+    background-color: #ff7f50; /* Coral button */
+    border-color: #ff7f50; /* Matching button border */
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #e67e22; /* Darker coral on hover */
+    border-color: #e67e22; /* Matching border color */
+    transform: translateY(-5px); /* Button lifts slightly on hover */
+}
+
+.row h4 {
+    color: #ff7f50; /* Heading color for each feature */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.row p {
+    color: #d1d1d1;
+    font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+    .cta-heading {
+        font-size: 2rem;
+    }
+
+    .cta-text {
+        font-size: 1rem;
+    }
+
+    .cta-icon {
+        width: 60px;
+        height: 60px;
+    }
+}

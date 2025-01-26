@@ -6,11 +6,11 @@ const { Paragraph } = Typography
 
 const Copyright = () => {
 
-    const year = new Date().getFullYear
+    const year = new Date().getFullYear()
 
     return (
         <>
-            <div className="container-fluid bg-dark">
+            <div className="container-fluid bg-primary">
                 <Row>
                     <Col span={24}>
                         <Paragraph className='text-center p-2 mb-0 text-white'>
